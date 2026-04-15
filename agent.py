@@ -2,107 +2,95 @@ import os
 import time
 import requests
 import subprocess
+import threading
+import queue
 from datetime import datetime
 
-class BSCSniper:
+class BarbarSniper:
     def __init__(self):
-        # API Key yang kamu berikan
-        self.api_key = "AN4M57CM4CIDF24EE3AP2G9H2BBEFQVC6E" 
+        self.api_key = "AN4M57CM4CIDF24EE3AP2G9H2BBEFQVC6E"
         self.kb_dir = "knowledge_base"
-        self.log_dir = "logs"
-        self.log_file = os.path.join(self.log_dir, "money_found.log")
+        self.log_file = "logs/money_found.log"
         self.base_url = "https://api.bscscan.com/api"
+        self.target_queue = queue.Queue()
+        self.max_workers = 8  # 8 Worker sudah cukup agresif untuk API gratis
         
-        for d in [self.kb_dir, self.log_dir]:
+        for d in [self.kb_dir, "logs"]:
             os.makedirs(d, exist_ok=True)
 
-    def get_latest_contracts(self):
-        """Ambil list transaksi terbaru untuk mencari alamat kontrak fresh"""
-        print(f"[*] [{datetime.now().strftime('%H:%M:%S')}] Scanning BSC for new targets...")
-        params = {
-            "module": "account",
-            "action": "txlist",
-            "address": "0x0000000000000000000000000000000000000000",
-            "startblock": 0,
-            "endblock": 99999999,
-            "page": 1,
-            "offset": 25,
-            "sort": "desc",
-            "apikey": self.api_key
-        }
-        try:
-            r = requests.get(self.base_url, params=params, timeout=10)
-            data = r.json()
-            if data["status"] == "1":
-                # Filter hanya transaksi yang membuat kontrak (to adalah kosong atau kontrak baru)
-                return list(set([tx["to"] for tx in data["result"] if tx["to"] != ""]))
-        except Exception as e:
-            print(f"[!] API Error: {e}")
-        return []
+    def fetch_targets(self):
+        """Mencari alamat kontrak baru dari blok terakhir"""
+        while True:
+            params = {
+                "module": "account", "action": "txlist",
+                "address": "0x0000000000000000000000000000000000000000",
+                "page": 1, "offset": 30, "sort": "desc", "apikey": self.api_key
+            }
+            try:
+                r = requests.get(self.base_url, params=params, timeout=10)
+                data = r.json()
+                if data["status"] == "1":
+                    addrs = list(set([tx["to"] for tx in data["result"] if tx["to"] != ""]))
+                    for a in addrs:
+                        self.target_queue.put(a)
+            except: pass
+            time.sleep(10) # Ambil blok baru tiap 10 detik
 
-    def audit_contract(self, address):
-        """Tarik source code dan cari celah withdraw/bocor"""
-        params = {
-            "module": "contract",
-            "action": "getsourcecode",
-            "address": address,
-            "apikey": self.api_key
-        }
-        try:
-            r = requests.get(self.base_url, params=params, timeout=10)
-            res = r.json()
-            if res["status"] == "1" and res["result"]:
-                source = res["result"][0].get("SourceCode", "")
-                if not source or len(source) < 100: return # Skip jika tidak ada source code
-                
-                # Pola Cuan: Fungsi withdraw/transfer tanpa proteksi 'onlyOwner'
-                target_patterns = ["withdraw(", "transfer(", "payable", "selfdestruct", "call{value:"]
-                
-                for pattern in target_patterns:
-                    if pattern in source.lower():
-                        # Cek filter keamanan paling fatal
-                        if "onlyowner" not in source.lower() and "require(msg.sender" not in source.lower():
-                            print(f"💰 [CUAN DETECTED] Address: {address} | Reason: No Protection on {pattern}")
-                            
-                            # Simpan log ke file lokal
-                            with open(self.log_file, "a") as f:
-                                f.write(f"[{datetime.now()}] ADDRESS: {address} | PATTERN: {pattern}\n")
-                            
-                            # Simpan source kodenya ke KB untuk bukti/eksekusi
-                            with open(os.path.join(self.kb_dir, f"TARGET_{address}.sol"), "w", encoding="utf-8") as f:
-                                f.write(source)
-                            return
-        except:
-            pass
+    def auditor_worker(self):
+        """Worker yang melakukan audit kode"""
+        while True:
+            address = self.target_queue.get()
+            if address:
+                # Jeda antar worker agar tidak melebihi 5 req/sec (Rate Limit)
+                time.sleep(2) 
+                params = {
+                    "module": "contract", "action": "getsourcecode",
+                    "address": address, "apikey": self.api_key
+                }
+                try:
+                    r = requests.get(self.base_url, params=params, timeout=10)
+                    res = r.json()
+                    
+                    # Cek jika kena limit
+                    if "Max rate limit" in str(res.get("result", "")):
+                        time.sleep(5)
+                        self.target_queue.put(address) # Antre ulang
+                        continue
 
-    def sync(self):
-        """Push hasil temuan ke GitHub Kingkana22"""
-        try:
-            subprocess.run(["git", "add", "."], shell=True, capture_output=True)
-            subprocess.run(["git", "commit", "-m", f"Audit_Update_{int(time.time())}"], shell=True, capture_output=True)
-            subprocess.run(["git", "push", "origin", "main", "--force"], shell=True, capture_output=True)
-            print("[*] Results synced to Cloud.")
-        except:
-            pass
+                    if res["status"] == "1" and res["result"]:
+                        source = res["result"][0].get("SourceCode", "")
+                        if source and len(source) > 200:
+                            # Logika deteksi cuan
+                            if "onlyowner" not in source.lower():
+                                if any(p in source.lower() for p in ["withdraw(", "call{value:", "payable"]):
+                                    print(f"💰 [POTENSI REAL] {address}")
+                                    with open(self.log_file, "a") as f:
+                                        f.write(f"[{datetime.now()}] FOUND: {address}\n")
+                except: pass
+            self.target_queue.task_done()
+
+    def sync_loop(self):
+        """Kirim hasil ke GitHub tiap 3 menit"""
+        while True:
+            time.sleep(180)
+            try:
+                subprocess.run(["git", "add", "."], shell=True)
+                subprocess.run(["git", "commit", "-m", "Auto_Update_Scan"], shell=True)
+                subprocess.run(["git", "push", "origin", "main", "--force"], shell=True)
+                print("[*] Logs Synced to GitHub.")
+            except: pass
 
     def run(self):
-        print("=== 💀 KANA OMNI-REAPER BSC SNIPER ACTIVE 💀 ===")
-        print(f"[*] API KEY LOADED: {self.api_key[:5]}...{self.api_key[-5:]}")
+        print(f"=== 💀 KANA REAPER ACTIVE (Workers: {self.max_workers}) 💀 ===")
+        # Start Threads
+        threading.Thread(target=self.fetch_targets, daemon=True).start()
+        threading.Thread(target=self.sync_loop, daemon=True).start()
+        
+        for _ in range(self.max_workers):
+            threading.Thread(target=self.auditor_worker, daemon=True).start()
         
         while True:
-            addresses = self.get_latest_contracts()
-            if addresses:
-                for addr in addresses:
-                    self.audit_contract(addr)
-                    time.sleep(0.2) # Jeda agar tidak kena limit rate API
-            
-            self.sync()
-            # Jeda antar scan agar tidak spamming API
-            print("[*] Cycle complete. Waiting for new blocks...")
-            time.sleep(30)
+            time.sleep(1)
 
 if __name__ == "__main__":
-    try:
-        BSCSniper().run()
-    except KeyboardInterrupt:
-        print("\n[!] Reaper Stopped.")
+    BarbarSniper().run()

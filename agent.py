@@ -1,96 +1,60 @@
-import os
-import time
-import requests
-import subprocess
-import threading
-import queue
+import os, time, requests, subprocess, threading, queue
 from datetime import datetime
 
-class BarbarSniper:
+class KanaOmniReaper:
     def __init__(self):
         self.api_key = "AN4M57CM4CIDF24EE3AP2G9H2BBEFQVC6E"
-        self.kb_dir = "knowledge_base"
         self.log_file = "logs/money_found.log"
         self.base_url = "https://api.bscscan.com/api"
         self.target_queue = queue.Queue()
-        self.max_workers = 8  # 8 Worker sudah cukup agresif untuk API gratis
-        
-        for d in [self.kb_dir, "logs"]:
-            os.makedirs(d, exist_ok=True)
+        self.workers = 8 # Jumlah bot pencari
+        os.makedirs("logs", exist_ok=True)
 
-    def fetch_targets(self):
-        """Mencari alamat kontrak baru dari blok terakhir"""
+    def get_new_contracts(self):
+        """Bot Utama: Ngintip blok terbaru BSC"""
         while True:
-            params = {
-                "module": "account", "action": "txlist",
-                "address": "0x0000000000000000000000000000000000000000",
-                "page": 1, "offset": 30, "sort": "desc", "apikey": self.api_key
-            }
+            params = {"module":"account","action":"txlist","address":"0x0000000000000000000000000000000000000000","page":1,"offset":25,"sort":"desc","apikey":self.api_key}
             try:
-                r = requests.get(self.base_url, params=params, timeout=10)
-                data = r.json()
-                if data["status"] == "1":
-                    addrs = list(set([tx["to"] for tx in data["result"] if tx["to"] != ""]))
-                    for a in addrs:
-                        self.target_queue.put(a)
+                r = requests.get(self.base_url, params=params, timeout=10).json()
+                if r["status"] == "1":
+                    for tx in r["result"]:
+                        if tx["to"]: self.target_queue.put(tx["to"])
             except: pass
-            time.sleep(10) # Ambil blok baru tiap 10 detik
+            time.sleep(10)
 
-    def auditor_worker(self):
-        """Worker yang melakukan audit kode"""
+    def audit_engine(self):
+        """Bot Pekerja: Bedah kode nyari celah withdraw"""
         while True:
-            address = self.target_queue.get()
-            if address:
-                # Jeda antar worker agar tidak melebihi 5 req/sec (Rate Limit)
-                time.sleep(2) 
-                params = {
-                    "module": "contract", "action": "getsourcecode",
-                    "address": address, "apikey": self.api_key
-                }
-                try:
-                    r = requests.get(self.base_url, params=params, timeout=10)
-                    res = r.json()
-                    
-                    # Cek jika kena limit
-                    if "Max rate limit" in str(res.get("result", "")):
-                        time.sleep(5)
-                        self.target_queue.put(address) # Antre ulang
-                        continue
-
-                    if res["status"] == "1" and res["result"]:
-                        source = res["result"][0].get("SourceCode", "")
-                        if source and len(source) > 200:
-                            # Logika deteksi cuan
-                            if "onlyowner" not in source.lower():
-                                if any(p in source.lower() for p in ["withdraw(", "call{value:", "payable"]):
-                                    print(f"💰 [POTENSI REAL] {address}")
-                                    with open(self.log_file, "a") as f:
-                                        f.write(f"[{datetime.now()}] FOUND: {address}\n")
-                except: pass
+            addr = self.target_queue.get()
+            time.sleep(1.5) # Jeda biar gak di-ban BscScan
+            params = {"module":"contract","action":"getsourcecode","address":addr,"apikey":self.api_key}
+            try:
+                r = requests.get(self.base_url, params=params, timeout=10).json()
+                if r["status"] == "1" and r["result"]:
+                    src = r["result"][0].get("SourceCode", "")
+                    # LOGIKA CUAN: No Owner + Ada fungsi tarik duit
+                    if src and "onlyowner" not in src.lower():
+                        if any(x in src.lower() for x in ["withdraw(", ".call{value:", "payable"]):
+                            print(f"💰 [DAPET] {addr}")
+                            with open(self.log_file, "a") as f:
+                                f.write(f"[{datetime.now()}] FOUND: {addr}\n")
+            except: pass
             self.target_queue.task_done()
 
-    def sync_loop(self):
-        """Kirim hasil ke GitHub tiap 3 menit"""
+    def cloud_sync(self):
+        """Bot Kurir: Kirim hasil ke GitHub Kingkana22"""
         while True:
-            time.sleep(180)
-            try:
-                subprocess.run(["git", "add", "."], shell=True)
-                subprocess.run(["git", "commit", "-m", "Auto_Update_Scan"], shell=True)
-                subprocess.run(["git", "push", "origin", "main", "--force"], shell=True)
-                print("[*] Logs Synced to GitHub.")
-            except: pass
+            time.sleep(120)
+            subprocess.run("git add . && git commit -m 'Sniper_Update' && git push origin main --force", shell=True)
+            print("[*] Cloud Synced.")
 
     def run(self):
-        print(f"=== 💀 KANA REAPER ACTIVE (Workers: {self.max_workers}) 💀 ===")
-        # Start Threads
-        threading.Thread(target=self.fetch_targets, daemon=True).start()
-        threading.Thread(target=self.sync_loop, daemon=True).start()
-        
-        for _ in range(self.max_workers):
-            threading.Thread(target=self.auditor_worker, daemon=True).start()
-        
-        while True:
-            time.sleep(1)
+        print(f"=== 💀 KANA REAPER ACTIVE (8 WORKERS) 💀 ===")
+        threading.Thread(target=self.get_new_contracts, daemon=True).start()
+        threading.Thread(target=self.cloud_sync, daemon=True).start()
+        for _ in range(self.workers):
+            threading.Thread(target=self.audit_engine, daemon=True).start()
+        while True: time.sleep(1)
 
 if __name__ == "__main__":
-    BarbarSniper().run()
+    KanaOmniReaper().run()

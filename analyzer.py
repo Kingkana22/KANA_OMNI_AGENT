@@ -1,37 +1,38 @@
 import os
 
-class KanaAnalyzer:
+class CuanAnalyzer:
     def __init__(self):
-        self.kb_path = "knowledge_base"
-        # Daftar kata kunci yang menandakan "Cuan" atau "Bahaya"
-        self.targets = ["vulnerability", "exploit", "critical", "bug bounty", "bypass", "reentrancy", "flash loan"]
+        self.victim_dir = "cloned_repos"
+        # Pola kode yang merupakan "lubang uang"
+        self.money_leaks = {
+            "REENTRANCY": ".call{value: ",
+            "OWNER_BYPASS": "onlyOwner", # Cek apakah ada fungsi withdraw tanpa ini
+            "DELEGATE_CALL": "delegatecall",
+            "SELF_DESTRUCT": "selfdestruct",
+            "TX_ORIGIN": "tx.origin"
+        }
 
-    def scan_knowledge(self):
-        print(f"\n{'='*40}")
-        print("   KANA CORE: KNOWLEDGE ANALYZER")
-        print(f"{'='*40}")
+    def analyze(self):
+        print("[*] ANALYZING CLONED REPOS FOR MONEY LEAKS...")
+        found_cuan = False
         
-        found_count = 0
-        files = [f for f in os.listdir(self.kb_path) if f.endswith('.md')]
+        for root, dirs, files in os.walk(self.victim_dir):
+            for file in files:
+                if file.endswith(".sol"):
+                    path = os.path.join(root, file)
+                    try:
+                        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                            content = f.readlines()
+                            for line_num, line in enumerate(content):
+                                for bug_name, pattern in self.money_leaks.items():
+                                    if pattern in line:
+                                        print(f"💰 [POTENSI CUAN] {bug_name} found in {file} (Line {line_num})")
+                                        print(f"   Context: {line.strip()}")
+                                        found_cuan = True
+                    except: continue
         
-        for file in files:
-            path = os.path.join(self.kb_path, file)
-            with open(path, 'r', encoding='utf-8') as f:
-                content = f.read().lower()
-                
-                # Cek apakah ada kata kunci di dalam file
-                found_keywords = [word for word in self.targets if word in content]
-                
-                if found_keywords:
-                    print(f"\n[!] POTENSI DITEMUKAN: {file}")
-                    print(f"    Keywords: {', '.join(found_keywords)}")
-                    found_count += 1
-        
-        if found_count == 0:
-            print("\n[○] Tidak ada temuan kritis dari dataset saat ini.")
-        else:
-            print(f"\n[✔] Total {found_count} file berisi informasi sensitif.")
+        if not found_cuan:
+            print("[!] Belum ada celah kritis. Terus kumpulkan target di KB.")
 
 if __name__ == "__main__":
-    scanner = KanaAnalyzer()
-    scanner.scan_knowledge()
+    CuanAnalyzer().analyze()

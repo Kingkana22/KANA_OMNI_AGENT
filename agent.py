@@ -1,97 +1,108 @@
 import os
 import time
+import requests
 import subprocess
-import threading
-import random
 from datetime import datetime
-import undetected_chromedriver as uc
-from selenium.webdriver.common.by import By
 
-class AgentCore:
+class BSCSniper:
     def __init__(self):
+        # API Key yang kamu berikan
+        self.api_key = "AN4M57CM4CIDF24EE3AP2G9H2BBEFQVC6E" 
         self.kb_dir = "knowledge_base"
-        self.victim_dir = "cloned_repos"
-        # Pola kode yang merupakan "Lubang Uang"
-        self.money_leaks = {
-            "REENTRANCY": ".call{value:",
-            "UNPROTECTED": "function withdraw",
-            "DELEGATE": "delegatecall",
-            "OWNER_CHANGE": "transferOwnership",
-            "MINT_SPOOF": "mint("
-        }
-        for d in [self.kb_dir, self.victim_dir]:
+        self.log_dir = "logs"
+        self.log_file = os.path.join(self.log_dir, "money_found.log")
+        self.base_url = "https://api.bscscan.com/api"
+        
+        for d in [self.kb_dir, self.log_dir]:
             os.makedirs(d, exist_ok=True)
 
-    def get_driver(self):
+    def get_latest_contracts(self):
+        """Ambil list transaksi terbaru untuk mencari alamat kontrak fresh"""
+        print(f"[*] [{datetime.now().strftime('%H:%M:%S')}] Scanning BSC for new targets...")
+        params = {
+            "module": "account",
+            "action": "txlist",
+            "address": "0x0000000000000000000000000000000000000000",
+            "startblock": 0,
+            "endblock": 99999999,
+            "page": 1,
+            "offset": 25,
+            "sort": "desc",
+            "apikey": self.api_key
+        }
         try:
-            options = uc.ChromeOptions()
-            options.add_argument("--headless=new")
-            options.add_argument("--no-sandbox")
-            options.add_argument("--disable-gpu")
-            return uc.Chrome(options=options)
-        except: return None
+            r = requests.get(self.base_url, params=params, timeout=10)
+            data = r.json()
+            if data["status"] == "1":
+                # Filter hanya transaksi yang membuat kontrak (to adalah kosong atau kontrak baru)
+                return list(set([tx["to"] for tx in data["result"] if tx["to"] != ""]))
+        except Exception as e:
+            print(f"[!] API Error: {e}")
+        return []
 
-    def analyze_cuan(self, local_path):
-        """Menyisir file .sol yang baru di-clone untuk mencari celah uang"""
-        for root, _, files in os.walk(local_path):
-            for file in files:
-                if file.endswith(".sol"):
-                    try:
-                        with open(os.path.join(root, file), "r", encoding="utf-8", errors="ignore") as f:
-                            lines = f.readlines()
-                            for i, line in enumerate(lines):
-                                for bug, pattern in self.money_leaks.items():
-                                    if pattern in line:
-                                        print(f"💰 [CUAN FOUND] {bug} in {file} (L:{i}) -> {line.strip()}")
-                    except: pass
-
-    def clone_repo(self, url):
-        repo_base = url.split("/blob/")[0] if "/blob/" in url else url.rstrip("/")
-        if not repo_base.endswith(".git"): repo_base += ".git"
-        
-        repo_name = repo_base.split("/")[-1].replace(".git", "")
-        target_path = os.path.join(self.victim_dir, repo_name)
-        
-        if not os.path.exists(target_path):
-            print(f"[*] Cloning {repo_name}...")
-            env = os.environ.copy()
-            env["GIT_TERMINAL_PROMPT"] = "0"
-            subprocess.run(["git", "clone", "--depth=1", repo_base, target_path], 
-                           env=env, capture_output=True)
-            # Langsung analisa setelah clone
-            self.analyze_cuan(target_path)
-
-    def process_target(self, url):
-        driver = self.get_driver()
-        if not driver: return
+    def audit_contract(self, address):
+        """Tarik source code dan cari celah withdraw/bocor"""
+        params = {
+            "module": "contract",
+            "action": "getsourcecode",
+            "address": address,
+            "apikey": self.api_key
+        }
         try:
-            driver.get(url)
-            time.sleep(10)
-            if "github.com" in url: self.clone_repo(url)
-        finally:
-            try: driver.quit()
-            except: pass
+            r = requests.get(self.base_url, params=params, timeout=10)
+            res = r.json()
+            if res["status"] == "1" and res["result"]:
+                source = res["result"][0].get("SourceCode", "")
+                if not source or len(source) < 100: return # Skip jika tidak ada source code
+                
+                # Pola Cuan: Fungsi withdraw/transfer tanpa proteksi 'onlyOwner'
+                target_patterns = ["withdraw(", "transfer(", "payable", "selfdestruct", "call{value:"]
+                
+                for pattern in target_patterns:
+                    if pattern in source.lower():
+                        # Cek filter keamanan paling fatal
+                        if "onlyowner" not in source.lower() and "require(msg.sender" not in source.lower():
+                            print(f"💰 [CUAN DETECTED] Address: {address} | Reason: No Protection on {pattern}")
+                            
+                            # Simpan log ke file lokal
+                            with open(self.log_file, "a") as f:
+                                f.write(f"[{datetime.now()}] ADDRESS: {address} | PATTERN: {pattern}\n")
+                            
+                            # Simpan source kodenya ke KB untuk bukti/eksekusi
+                            with open(os.path.join(self.kb_dir, f"TARGET_{address}.sol"), "w", encoding="utf-8") as f:
+                                f.write(source)
+                            return
+        except:
+            pass
 
     def sync(self):
-        subprocess.run(["git", "add", "."], shell=True)
-        subprocess.run(["git", "commit", "-m", f"Audit_{int(time.time())}"], shell=True)
-        subprocess.run(["git", "push", "origin", "main", "--force"], shell=True)
+        """Push hasil temuan ke GitHub Kingkana22"""
+        try:
+            subprocess.run(["git", "add", "."], shell=True, capture_output=True)
+            subprocess.run(["git", "commit", "-m", f"Audit_Update_{int(time.time())}"], shell=True, capture_output=True)
+            subprocess.run(["git", "push", "origin", "main", "--force"], shell=True, capture_output=True)
+            print("[*] Results synced to Cloud.")
+        except:
+            pass
 
     def run(self):
-        # Ambil URL dari knowledge_base secara otomatis
-        targets = []
-        for f in os.listdir(self.kb_dir):
-            if f.endswith(".md"):
-                with open(os.path.join(self.kb_dir, f), "r", encoding="utf-8", errors="ignore") as file:
-                    for line in file:
-                        if "github.com" in line and "http" in line:
-                            targets.append("http" + line.split("http")[1].split(" ")[0].strip())
-
-        for url in list(set(targets))[:5]:
-            print(f"[*] Attacking: {url}")
-            self.process_target(url)
+        print("=== 💀 KANA OMNI-REAPER BSC SNIPER ACTIVE 💀 ===")
+        print(f"[*] API KEY LOADED: {self.api_key[:5]}...{self.api_key[-5:]}")
         
-        self.sync()
+        while True:
+            addresses = self.get_latest_contracts()
+            if addresses:
+                for addr in addresses:
+                    self.audit_contract(addr)
+                    time.sleep(0.2) # Jeda agar tidak kena limit rate API
+            
+            self.sync()
+            # Jeda antar scan agar tidak spamming API
+            print("[*] Cycle complete. Waiting for new blocks...")
+            time.sleep(30)
 
 if __name__ == "__main__":
-    AgentCore().run()
+    try:
+        BSCSniper().run()
+    except KeyboardInterrupt:
+        print("\n[!] Reaper Stopped.")

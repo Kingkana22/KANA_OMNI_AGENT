@@ -1,0 +1,3456 @@
+{
+    "patterns": [
+        {
+            "source": "Exploit-template.sol",
+            "keywords": []
+        },
+        {
+            "source": "Exploit-template_new.sol",
+            "keywords": []
+        },
+        {
+            "source": "Poc-template.sol",
+            "keywords": []
+        },
+        {
+            "source": "RPCS_alive_test.sol",
+            "keywords": []
+        },
+        {
+            "source": "basetest.sol",
+            "keywords": []
+        },
+        {
+            "source": "interface.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "IUNMI_db27_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "StableMath.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "tokenhelper.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Parity_first_hack_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Parity_kill_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "BEC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SmartMesh_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "SpankChain_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "LendfMe_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "uniswap-erc777.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Balancer_20200628_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Bancor_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Opyn_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "bzx_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "HarvestFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Pickle_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Cover_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "Sushi_Badger_Digg_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Yearn_ydai_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "dodo_flashloan_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PAID_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Uranium_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "bEarn_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BurgerSwap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "JulSwap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PancakeBunny_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RariCapital_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Spartan_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ValueDefi_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "88mph_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Eleven_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PancakeHunny_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "SafeDollar_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "xWin_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Chainswap_exp1.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "Chainswap_exp2.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Levyathan_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Cream_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PolyNetwork_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Popsicle_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "WaultFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "XSURGE_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DaoMaker_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Nimbus_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NowSwap_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Sushimiso_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ZABU_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Cream_2_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "IndexedFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Mono_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Ploutoz_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Grim_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NerveBridge_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Visor_exp.sol",
+            "keywords": [
+                "transfer",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Anyswap_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Qubit_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "BuildF_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Meter_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Sandbox_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "TecraSpace_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Agave_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Auctus_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Bacon_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CompoundTusd_exp.sol",
+            "keywords": [
+                "delegate"
+            ]
+        },
+        {
+            "source": "Fantasm_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "HundredFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LiFi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "OneRing_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Paraluni_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RedactedCartel_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Revest_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Ronin_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "TreasureDAO_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Umbrella_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "AkutarNFT_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Beanstalk_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "cftoken_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "deus_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Elephant_Money_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Gym_1_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Rari_exp.sol",
+            "keywords": [
+                "transfer",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Rikkei_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Saddle_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Wdoge_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Zeed_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Bayc_apecoin_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FortressLoans_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "HackDao_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Novo_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Discover_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Gym_2_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "Harmony_multisig_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "InverseFinance_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Optimism_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Snood_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "XCarnival_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Audius_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "FlippazOne_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "LPC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Omni_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Quixotic_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "SpaceGodzilla_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ANCH_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Circle_exp1.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Circle_exp2.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DDC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EGD_Finance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EtnProduct_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LuckyTiger_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "NomadBridge_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Qixi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ReaperFarm_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "XST_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "XST_exp2.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BadGuysbyRPF_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "BNB48MEVBot_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "BXH_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "DPC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MEVbadc0de_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NewFreeDAO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NXUSD_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "RADT_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ROI_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Shadowfi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "THB_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Yyds_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ZoomproFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ATK_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BabySwap_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BEGO_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Carrot_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EFLeverVault_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "HEALTH_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HPAY_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "INUKO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Market_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "MEVa47b_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "MulticallWithoutCheck_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "N00d_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "OlympusDao_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "PLTD_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RabbyWallet_SwapRouter_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RES_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RES_exp2.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RL_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "TeamFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "Templedao_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "TransitSwap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Uerii_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "ULME_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ULME_exp2.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "VTF_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "XaveFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Annex_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "AUR_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "BDEX_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BrahTOPG_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DFX_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "Kashi_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MBC_ZZSH_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MEV_0ad8_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MooCAKECTX_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NUM_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Polynomial_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "SDAO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SEAMAN_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SheepFarm2_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "SheepFarm_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "UEarnPool_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "AES_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "APC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BBOX_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BGLD_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Defrost_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DFS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ElasticSwap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FPR_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "JAY_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Lodestar_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "MEVbot_0x28d9_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "MUMUG_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Nmbplatform_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NovaExchange_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Overnight_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "RFB_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Rubic_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "TIFI_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BEVO_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BRA_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GDS_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Midas_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "OmniEstate_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "QTN_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RoeFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "delegate"
+            ]
+        },
+        {
+            "source": "SHOCO_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "ThoreumFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "TINU_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "UFDao_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Upswing_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "BonqDAO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "CowSwap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Dexible_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "dForce_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DYNA_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EFVault_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "FDP_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LaunchZone_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Orion_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Platypus_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "RevertFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Sheep_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Starlink_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SwapX_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "USDs_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "BIGFI_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DBW_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "DKP_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Euler_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "paraspace_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Paraspace_exp_2.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Phoenix_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "poolz_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "safeMoon_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Thena_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "0vix_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Allbridge_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Allbridge_exp2.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Axioma_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HundredFinance_2_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "MetaPoint_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "OLIFE_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Paribus_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Sentiment_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "silo_finance_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Sushi_Router_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Swapos_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "YearnFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "BabyDogeCoin_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Bitpaidio_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DEI_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ERC20TokenBank_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FAPEN_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "GPT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HODLCapital_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Jimbo_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "landNFT_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Level_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LFI_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "LocalTrader2_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LocalTrader_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LW_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Melo_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "MultiChainCapital_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NeverFall_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NOON_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SELLC02_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SELLC_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "SellToken_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SNK_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ARA_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BabyDogeCoin02_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Biswap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BUNN_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Cellframe_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CFC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CompounderFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Contract_0x7657_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DDCoin_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "DEPUSDT_LEVUSDC_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "MidasCapitalXYZ_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "MIMSpell_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MyAi_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "NST_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Pawnfi_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "SELLC03_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SHIDO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SHIDO_exp2.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "STRAC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Sturdy_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Themis_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "UnverifiedContr_9ad32_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "UN_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "VINU_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ApeDAO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ArcadiaFi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "AzukiDAO_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Bamboo_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Bao_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "BNO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Carson_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Civfund_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CIVNFT_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "Conic02_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Conic_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Conic_exp2.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Curve_exp01.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "Curve_exp02.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "FFIST_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "GYMNET_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Libertify_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LUSD_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MintoFinance_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "NewFi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Palmswap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Platypus02_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "RodeoFinance_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "SUT_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "USDTStakingContract28_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Utopia_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "WGPT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Balancer_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "BTC20_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CurveBurner_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "delegate"
+            ]
+        },
+        {
+            "source": "EAC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EarningFram_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EHIVE_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Exactly_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GSS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Leetswap_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "NeutraFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SVT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Uwerx_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Zunami_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "0x0DEX_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "APIG_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BFCToken_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CEXISWAP_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "DAppSocial_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "DEXRouter_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FireBirdPair_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FloorDAO_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HCT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HeavensGate_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "JumpFarm_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "Kub_Split_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "QuantumWN_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "uniclyNFT_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "XSDWETHpool_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Astrid_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BelugaDex_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BH_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DePayRouter_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Hopelend_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "kTAF_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "LaEeb_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MaestroRouter2_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MicDao_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "OpenLeverage_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Platypus03_exp.sol",
+            "keywords": [
+                "withdraw",
+                "call"
+            ]
+        },
+        {
+            "source": "pSeudoEth_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "StarsArena_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "UniBot_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "WiseLending_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ZS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "3913_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "AIS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "bot_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "BRAND_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Burntbubba_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CAROLProtocol_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EEE_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "EHX_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FiberRouter_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "grok_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "KR_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "KyberSwap_exp.eth.1.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LinkDao_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MahaLend_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MetaLend_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "MEV_0x8c2d_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MEV_0xa247_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "OKC_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "OnyxProtocol_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Raft_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RBalancer_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "ShibaToken_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SwampFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "TheNFTV2_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "TheStandard_io_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Token8633_9419_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "TrustPad_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "WECO_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "XAI_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "IFactory.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "IPoolOracle.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "IBasePositionManager.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "IRouterTokenHelper.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "IPoolActions.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "IPoolStorage.sol",
+            "keywords": []
+        },
+        {
+            "source": "IERC20.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "IERC721.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "IERC721Enumerable.sol",
+            "keywords": []
+        },
+        {
+            "source": "IERC721Metadata.sol",
+            "keywords": []
+        },
+        {
+            "source": "IERC721Permit.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "IERC165.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "FullMath.sol",
+            "keywords": []
+        },
+        {
+            "source": "QtyDeltaMath.sol",
+            "keywords": []
+        },
+        {
+            "source": "SafeCast.sol",
+            "keywords": []
+        },
+        {
+            "source": "TickMath.sol",
+            "keywords": []
+        },
+        {
+            "source": "BCT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BEARNDAO_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Bob_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "bZx_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CCV_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ChannelsFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "Channels_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DominoTT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ElephantStatus_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FloorProtocol_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GoodCompound_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GoodDollar_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "HNet_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HYPR_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "KEST_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MAMO_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NFTTrader_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PHIL_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PineProtocol_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Telcoin_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "TIME_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "TransitFinance_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "UnverifiedContr_0x431abb_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BarleyFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Bmizapper_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CitadelFinance_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DAO_SoulMate_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Freedom_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Gamma_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "LQDX_alert_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "MIC_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MIMSpell2_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "NBLGAME_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "OrbitChain_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "PeapodsFinance_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "RadiantCapital_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Shell_MEV_0xa898_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SocketGateway_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "WiseLending02_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "WiseLending03_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer"
+            ]
+        },
+        {
+            "source": "XSIJ_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ADC_exp.sol",
+            "keywords": [
+                "withdraw"
+            ]
+        },
+        {
+            "source": "AffineDeFi_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Babyloogn_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BlueberryProtocol_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BurnsDefi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "CompoundUni_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DeezNutz404_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "DN404_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "DualPools_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "EGGX_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GAIN_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Game_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "MINER_bsc_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Miner_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "PANDORA_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "ParticleTrade_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "RuggedArt_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Seneca_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SMOOFSStaking_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "SwarmMarkets_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Zoomer_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ALP_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "ARK_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "BBT_exp.sol",
+            "keywords": []
+        },
+        {
+            "source": "Binemon_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "CGT_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "ETHFIN_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GHT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "IT_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Juice_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "LavaLending_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "MO_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        },
+        {
+            "source": "Paraswap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Prisma_exp.sol",
+            "keywords": [
+                "transfer",
+                "call",
+                "delegate"
+            ]
+        },
+        {
+            "source": "SSS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "TGBS_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "UnizenIO2_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "UnizenIO_exp.sol",
+            "keywords": [
+                "call"
+            ]
+        },
+        {
+            "source": "Woofi_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ZongZi_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ATM_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BigBangSwap_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "BNBX_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "ChaingeFinance_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "FIL314_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GFA_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "GROKD_exp.sol",
+            "keywords": [
+                "withdraw",
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "Hackathon_exp.sol",
+            "keywords": [
+                "transfer",
+                "call"
+            ]
+        },
+        {
+            "source": "HedgeyFinance_exp.sol",
+            "keywords": [
+                "transfer"
+            ]
+        }
+    ],
+    "rules": [
+        "Cari fungsi withdraw tanpa onlyowner",
+        "Identifikasi delegatecall ke address eksternal",
+        "Pantau pola reentrancy pada fungsi payable",
+        "Pastikan bot beroperasi dengan 8 workers untuk speed optimal"
+    ],
+    "last_learned": "2026-04-16 05:54"
+}

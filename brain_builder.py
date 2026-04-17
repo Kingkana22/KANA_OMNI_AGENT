@@ -53,7 +53,8 @@ class KanaBrainBuilder:
 
     def sync_brain(self):
         print("[*] Mengirim kecerdasan ke Cloud...")
-        os.system("git add . && git commit -m 'AI_Brain_Sync' && git push origin main --force")
+        # Hanya commit file otak yang dihasilkan dan hindari force push
+        os.system(f"git add {self.brain_file} && git commit -m 'AI_Brain_Sync' && git push origin main")
 
     def run(self):
         print("=== 🧠 KANA AI LEARNING MODE ACTIVE ===")

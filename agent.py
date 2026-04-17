@@ -13,12 +13,19 @@ class KanaOmniReaper:
     def get_new_contracts(self):
         """Bot Utama: Ngintip blok terbaru BSC"""
         while True:
-            params = {"module":"account","action":"txlist","address":"0x0000000000000000000000000000000000000000","page":1,"offset":25,"sort":"desc","apikey":self.api_key}
+            # Get latest block number
+            params = {"module":"block","action":"getblocknobytime","timestamp":int(time.time()),"closest":"before","apikey":self.api_key}
             try:
                 r = requests.get(self.base_url, params=params, timeout=10).json()
                 if r["status"] == "1":
-                    for tx in r["result"]:
-                        if tx["to"]: self.target_queue.put(tx["to"])
+                    block_number = r["result"]
+                    # Get block transactions
+                    params = {"module":"block","action":"getblock","blockno":block_number,"apikey":self.api_key}
+                    r = requests.get(self.base_url, params=params, timeout=10).json()
+                    if r["status"] == "1":
+                        for tx in r["result"]["transactions"]:
+                            if not tx["to"] and tx.get("contractAddress"):
+                                self.target_queue.put(tx["contractAddress"])
             except: pass
             time.sleep(10)
 

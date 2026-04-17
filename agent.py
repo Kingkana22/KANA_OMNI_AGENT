@@ -1,8 +1,13 @@
-import os, time, requests, subprocess, threading, queue, json, re
+import os, time, requests, subprocess, threading, queue, json, re, hashlib
 from datetime import datetime
 from collections import defaultdict
 import websocket
 import logging
+from typing import Dict, List, Optional, Tuple
+import web3
+from web3 import Web3
+from eth_account import Account
+from eth_account.messages import encode_defunct
 
 class KanaOmniReaper:
     def __init__(self):

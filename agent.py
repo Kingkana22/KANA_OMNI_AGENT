@@ -14,8 +14,9 @@ class KanaOmniReaper:
         self.api_key = "AN4M57CM4CIDF24EE3AP2G9H2BBEFQVC6E"
         self.log_file = "logs/money_found.log"
         self.risk_log = "logs/risk_assessment.log"
-        self.base_url = "https://api.bscscan.com/api"
-        self.wss_url = "wss://bsc-ws-node.nariox.org:443"  # WebSocket endpoint
+        self.base_url = "https://api.bscscan.com/api"  # Keep for compatibility but will use v2 endpoints
+        self.rpc_url = "https://bsc-dataseed1.binance.org/"  # Binance BSC RPC endpoint
+        self.wss_url = "wss://bsc-ws-node.nariox.org:443"  # Reliable BSC WebSocket endpoint
         self.target_queue = queue.Queue()
         self.risk_queue = queue.Queue()
         self.workers = 12  # Increased workers
@@ -150,40 +151,48 @@ class KanaOmniReaper:
         last_block = None
         while True:
             try:
-                # Get latest block number
-                params = {
-                    "module": "block",
-                    "action": "getblocknobytime",
-                    "timestamp": int(time.time()),
-                    "closest": "before",
-                    "apikey": self.api_key
+                # Get latest block number using Binance RPC
+                payload = {
+                    "jsonrpc": "2.0",
+                    "method": "eth_blockNumber",
+                    "params": [],
+                    "id": 1
                 }
-                r = requests.get(self.base_url, params=params, timeout=10).json()
+                r = requests.post(self.rpc_url, json=payload, timeout=10).json()
 
-                if r["status"] == "1":
-                    block_number = r["result"]
+                if "result" in r:
+                    block_number_hex = r["result"]
+                    block_number = int(block_number_hex, 16)
 
                     # Only process if it's a new block
                     if last_block != block_number:
                         last_block = block_number
                         self.logger.info(f"Processing block: {block_number}")
 
-                        # Get block transactions
-                        params = {
-                            "module": "block",
-                            "action": "getblock",
-                            "blockno": block_number,
-                            "apikey": self.api_key
+                        # Get block details using Binance RPC
+                        payload = {
+                            "jsonrpc": "2.0",
+                            "method": "eth_getBlockByNumber",
+                            "params": [block_number_hex, True],
+                            "id": 2
                         }
-                        r = requests.get(self.base_url, params=params, timeout=10).json()
+                        r = requests.post(self.rpc_url, json=payload, timeout=10).json()
 
-                        if r["status"] == "1":
+                        if "result" in r and r["result"]:
+                            block_data = r["result"]
                             contracts_found = 0
-                            for tx in r["result"]["transactions"]:
-                                if not tx["to"] and tx.get("contractAddress"):
-                                    contract_addr = tx["contractAddress"]
-                                    self.target_queue.put(contract_addr)
-                                    contracts_found += 1
+
+                            # Check transactions in the block
+                            if "transactions" in block_data:
+                                for tx in block_data["transactions"]:
+                                    # Check if it's a contract creation transaction
+                                    if tx.get("to") is None or tx.get("to") == "":
+                                        # Get contract address from receipt
+                                        if "hash" in tx:
+                                            contract_addr = self._get_contract_address_from_tx(tx["hash"])
+                                            if contract_addr:
+                                                self.target_queue.put(contract_addr)
+                                                contracts_found += 1
 
                             if contracts_found > 0:
                                 self.logger.info(f"Found {contracts_found} new contracts in block {block_number}")
@@ -219,6 +228,25 @@ class KanaOmniReaper:
                     findings.append(f"old_solidity_version: {version}")
 
         return round(score, 2), findings
+
+    def _get_contract_address_from_tx(self, tx_hash):
+        """Get contract address from transaction receipt using RPC"""
+        try:
+            payload = {
+                "jsonrpc": "2.0",
+                "method": "eth_getTransactionReceipt",
+                "params": [tx_hash],
+                "id": 3
+            }
+            r = requests.post(self.rpc_url, json=payload, timeout=10).json()
+
+            if "result" in r and r["result"]:
+                receipt = r["result"]
+                if "contractAddress" in receipt and receipt["contractAddress"]:
+                    return receipt["contractAddress"]
+        except Exception as e:
+            self.logger.error(f"Error getting contract address from tx {tx_hash}: {e}")
+        return None
 
     def audit_engine(self):
         """Enhanced audit engine with risk scoring"""
@@ -792,7 +820,7 @@ class KanaOmniReaper:
         print("=" * 60)
 
         # Start all monitoring systems
-        threading.Thread(target=self.websocket_monitor, daemon=True).start()
+        # threading.Thread(target=self.websocket_monitor, daemon=True).start()  # Disabled due to connection issues
         threading.Thread(target=self.get_new_contracts, daemon=True).start()
         threading.Thread(target=self.cloud_sync, daemon=True).start()
         threading.Thread(target=self.performance_monitor, daemon=True).start()

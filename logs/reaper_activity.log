@@ -1,0 +1,128 @@
+2026-04-17 11:52:38,573 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:52:38,573 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:52:38,574 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:53:04,602 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:53:04,603 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:53:04,603 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:53:30,650 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:53:30,650 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:53:30,650 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:53:56,706 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:53:56,706 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:53:56,706 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:54:22,753 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:54:22,754 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:54:22,754 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:54:48,794 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:54:48,795 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:54:48,795 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:55:14,833 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:55:14,834 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:55:14,834 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:55:40,861 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:55:40,861 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:55:40,861 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:56:06,900 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:56:06,900 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:56:06,900 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:56:32,936 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:56:32,936 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:56:32,936 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:56:58,983 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:56:58,983 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:56:58,983 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:57:17,648 - ERROR - Cloud sync failed: 
+2026-04-17 11:57:25,036 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:57:25,036 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:57:25,036 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:57:51,129 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:57:51,129 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:57:51,129 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:58:17,180 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:58:17,180 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:58:17,180 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:58:43,213 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:58:43,213 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:58:43,214 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:59:09,254 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:59:09,254 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:59:09,254 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 11:59:35,293 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 11:59:35,293 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 11:59:35,293 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:00:01,346 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:00:01,346 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:00:01,346 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:00:27,386 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:00:27,386 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:00:27,386 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:00:53,433 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:00:53,433 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:00:53,433 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:01:19,471 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:01:19,471 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:01:19,472 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:01:45,501 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:01:45,501 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:01:45,501 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:02:11,549 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:02:11,549 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:02:11,549 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:02:17,804 - ERROR - Cloud sync failed: 
+2026-04-17 12:02:37,595 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:02:37,595 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:02:37,595 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:03:03,742 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:03:03,742 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:03:03,742 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:03:29,784 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:03:29,784 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:03:29,784 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:03:55,833 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:03:55,833 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:03:55,833 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:04:21,872 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:04:21,873 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:04:21,873 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:04:47,911 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:04:47,911 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:04:47,911 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:05:13,945 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:05:13,945 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:05:13,945 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:05:39,987 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:05:39,987 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:05:39,987 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:06:35,383 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:06:35,383 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:06:35,383 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:06:59,913 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:06:59,913 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:06:59,913 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:07:25,966 - ERROR - WebSocket error: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2026-04-17 12:07:25,967 - ERROR - [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond - goodbye
+2026-04-17 12:07:25,967 - WARNING - WebSocket connection closed, reconnecting...
+2026-04-17 12:07:36,742 - INFO - Websocket connected
+2026-04-17 12:07:36,743 - INFO - WebSocket connected and subscribed to new blocks
+2026-04-17 12:09:35,945 - INFO - Websocket connected
+2026-04-17 12:09:35,946 - INFO - WebSocket connected and subscribed to new blocks
+2026-04-17 12:11:16,939 - ERROR - WebSocket connection failed: 'KanaOmniReaper' object has no attribute 'wss_url'
+2026-04-17 12:11:17,579 - INFO - Processing block: 92995442
+2026-04-17 12:11:21,797 - INFO - Processing block: 92995452
+2026-04-17 12:11:26,030 - INFO - Processing block: 92995461
+2026-04-17 12:11:26,939 - ERROR - WebSocket connection failed: 'KanaOmniReaper' object has no attribute 'wss_url'
+2026-04-17 12:11:30,243 - INFO - Processing block: 92995470
+2026-04-17 12:11:34,565 - INFO - Processing block: 92995480
+2026-04-17 12:11:36,940 - ERROR - WebSocket connection failed: 'KanaOmniReaper' object has no attribute 'wss_url'
+2026-04-17 12:11:38,823 - INFO - Processing block: 92995489
+2026-04-17 12:12:40,964 - INFO - Processing block: 92995627
+2026-04-17 12:12:45,204 - INFO - Processing block: 92995637
+2026-04-17 12:12:49,445 - INFO - Processing block: 92995646
+2026-04-17 12:12:53,707 - INFO - Processing block: 92995655
+2026-04-17 12:12:57,915 - INFO - Processing block: 92995665
+2026-04-17 12:13:02,239 - INFO - Processing block: 92995675
+2026-04-17 12:13:06,540 - INFO - Processing block: 92995684
+2026-04-17 12:13:10,891 - INFO - Processing block: 92995694
+2026-04-17 12:13:15,191 - INFO - Processing block: 92995703
+2026-04-17 12:13:19,497 - INFO - Processing block: 92995713
+2026-04-17 12:13:23,687 - INFO - Processing block: 92995722

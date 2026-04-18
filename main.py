@@ -1,0 +1,1 @@
+﻿print('KANA OMNI READY')

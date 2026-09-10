@@ -2,116 +2,22 @@
 
 import { useEffect, useState } from "react";
 
-type Brain = { status: string; mode: string; cycle: number; objective: string; lastDelta: string; updatedAt: string };
-type Connector = { id: string; name: string; configured: boolean; capabilities: readonly string[] };
-
-const initialBrain: Brain = {
-  status: "ONLINE",
-  mode: "OBSERVE",
-  cycle: 0,
-  objective: "Initialize KANA Big Brain",
-  lastDelta: "Vercel control plane initialized",
-  updatedAt: "",
-};
+type Brain = { status:string; mode:string; cycle:number; objective:string; lastDelta:string; updatedAt:string };
+type Provider = { id:string; capability:string; priority:number; configured:boolean };
+const caps = ["web","code","analytics","knowledge","design","media","commerce","compute","cms"];
 
 export default function Home() {
-  const [brain, setBrain] = useState(initialBrain);
-  const [connectors, setConnectors] = useState<Connector[]>([]);
-  const [objective, setObjective] = useState("");
-  const [plan, setPlan] = useState<any>(null);
-  const [audit, setAudit] = useState<any[]>([]);
-  const [busy, setBusy] = useState(false);
-  const [message, setMessage] = useState("Ready");
-
-  async function refresh() {
-    const [brainRes, connectorRes, auditRes] = await Promise.all([
-      fetch("/api/brain/state"),
-      fetch("/api/connectors"),
-      fetch("/api/audit?limit=25"),
-    ]);
-    if (brainRes.ok) setBrain((await brainRes.json()).brain);
-    if (connectorRes.ok) setConnectors((await connectorRes.json()).connectors);
-    if (auditRes.ok) setAudit((await auditRes.json()).events);
-  }
-
-  useEffect(() => { refresh().catch(() => setMessage("Control plane refresh failed")); }, []);
-
-  async function createPlan() {
-    if (!objective.trim()) return;
-    setBusy(true);
-    setMessage("Big Brain is reasoning...");
-    try {
-      const response = await fetch("/api/brain/plan", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ objective }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Planning failed");
-      setPlan(data.plan);
-      setMessage("Plan created and audited");
-      await refresh();
-    } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Planning failed");
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  return (
-    <main style={{ minHeight: "100vh", background: "#08090b", color: "#f5f7fa", padding: 32, fontFamily: "Arial, sans-serif" }}>
-      <section style={{ maxWidth: 1180, margin: "0 auto" }}>
-        <div style={{ opacity: 0.55, letterSpacing: 4, fontSize: 11 }}>KANA SOVEREIGN CORE / CONTROL PLANE</div>
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 20, alignItems: "end", flexWrap: "wrap" }}>
-          <div>
-            <h1 style={{ fontSize: 48, margin: "14px 0 8px" }}>BIG BRAIN</h1>
-            <p style={{ opacity: 0.65, maxWidth: 760, lineHeight: 1.6 }}>Objective → Reason → Plan → Execute → Verify → Experience → Evolve.</p>
-          </div>
-          <div style={{ border: "1px solid #29303a", borderRadius: 999, padding: "8px 14px", fontSize: 12 }}>{brain.status} / {brain.mode}</div>
-        </div>
-
-        <div style={{ marginTop: 28, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 12 }}>
-          {["Big Brain", "Information Governor", "Execution", "Verification", "Experience", "Evolution"].map((item) => (
-            <div key={item} style={{ border: "1px solid #24272d", padding: 18, borderRadius: 10, background: "#0e1014" }}>
-              <div style={{ fontSize: 10, opacity: 0.45, letterSpacing: 2 }}>SYSTEM</div>
-              <div style={{ marginTop: 9, fontSize: 17 }}>{item}</div>
-              <div style={{ marginTop: 10, fontSize: 11, opacity: 0.5 }}>ACTIVE</div>
-            </div>
-          ))}
-        </div>
-
-        <section style={{ marginTop: 18, border: "1px solid #24272d", borderRadius: 12, padding: 22, background: "#0c0e12" }}>
-          <div style={{ fontSize: 11, opacity: 0.5, letterSpacing: 2 }}>OBJECTIVE</div>
-          <div style={{ display: "flex", gap: 10, marginTop: 12, flexWrap: "wrap" }}>
-            <input value={objective} onChange={(e) => setObjective(e.target.value)} onKeyDown={(e) => e.key === "Enter" && createPlan()} placeholder="Give KANA a measurable objective..." style={{ flex: 1, minWidth: 260, background: "#08090b", color: "white", border: "1px solid #30343c", borderRadius: 8, padding: 13 }} />
-            <button disabled={busy} onClick={createPlan} style={{ border: "1px solid #d8dde5", background: "#f5f7fa", color: "#08090b", borderRadius: 8, padding: "0 18px", fontWeight: 700 }}>{busy ? "THINKING..." : "PLAN"}</button>
-          </div>
-          <div style={{ marginTop: 10, fontSize: 12, opacity: 0.55 }}>{message}</div>
-        </section>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: 18, marginTop: 18 }}>
-          <section style={{ border: "1px solid #24272d", borderRadius: 12, padding: 22, background: "#0c0e12" }}>
-            <div style={{ fontSize: 11, opacity: 0.5, letterSpacing: 2 }}>BRAIN STATE</div>
-            <pre style={{ whiteSpace: "pre-wrap", fontSize: 12, lineHeight: 1.7, opacity: 0.78 }}>{JSON.stringify(brain, null, 2)}</pre>
-          </section>
-          <section style={{ border: "1px solid #24272d", borderRadius: 12, padding: 22, background: "#0c0e12" }}>
-            <div style={{ fontSize: 11, opacity: 0.5, letterSpacing: 2 }}>CONNECTOR GATEWAY</div>
-            <div style={{ marginTop: 12, display: "grid", gap: 9 }}>{connectors.map((c) => <div key={c.id} style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid #20242b", paddingBottom: 8, fontSize: 13 }}><span>{c.name}</span><span style={{ opacity: 0.55 }}>{c.configured ? "CONFIGURED" : "ADAPTER READY"}</span></div>)}</div>
-          </section>
-        </div>
-
-        {plan && <section style={{ marginTop: 18, border: "1px solid #24272d", borderRadius: 12, padding: 22, background: "#0c0e12" }}>
-          <div style={{ fontSize: 11, opacity: 0.5, letterSpacing: 2 }}>LATEST PLAN</div>
-          <h2 style={{ fontSize: 20 }}>{plan.strategy}</h2>
-          <p style={{ opacity: 0.7 }}>{plan.interpretation}</p>
-          <pre style={{ whiteSpace: "pre-wrap", fontSize: 12, lineHeight: 1.6, opacity: 0.78 }}>{JSON.stringify(plan.actions, null, 2)}</pre>
-        </section>}
-
-        <section style={{ marginTop: 18, border: "1px solid #24272d", borderRadius: 12, padding: 22, background: "#0c0e12" }}>
-          <div style={{ fontSize: 11, opacity: 0.5, letterSpacing: 2 }}>AUDIT STREAM</div>
-          <div style={{ marginTop: 12, display: "grid", gap: 8 }}>{audit.length ? audit.map((event) => <div key={event.id} style={{ fontSize: 12, borderBottom: "1px solid #20242b", padding: "8px 0" }}><b>{event.status}</b> — {event.message}<span style={{ opacity: 0.4, marginLeft: 8 }}>{event.timestamp}</span></div>) : <div style={{ opacity: 0.5, fontSize: 12 }}>No events yet.</div>}</div>
-        </section>
-      </section>
-    </main>
-  );
+  const [brain,setBrain]=useState<Brain>({status:"ONLINE",mode:"OBSERVE",cycle:0,objective:"Initialize KANA Big Brain",lastDelta:"",updatedAt:""});
+  const [providers,setProviders]=useState<Provider[]>([]); const [objective,setObjective]=useState(""); const [result,setResult]=useState<any>(null); const [busy,setBusy]=useState(false);
+  async function refresh(){const [b,p]=await Promise.all([fetch("/api/brain/state"),fetch("/api/providers")]);if(b.ok)setBrain((await b.json()).brain);if(p.ok)setProviders((await p.json()).providers)}
+  useEffect(()=>{refresh().catch(()=>{})},[]);
+  async function execute(){if(!objective.trim())return;setBusy(true);setResult(null);try{const r=await fetch("/api/capability",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({capability:"code",objective,input:{requestedBy:"control-plane"}})});setResult(await r.json());await refresh()}finally{setBusy(false)}}
+  const configured=providers.filter(p=>p.configured).length;
+  return <main style={{minHeight:"100vh",background:"#07080a",color:"#eef1f5",fontFamily:"Inter,Arial,sans-serif",padding:28}}><div style={{maxWidth:1280,margin:"auto"}}>
+    <header style={{display:"flex",justifyContent:"space-between",gap:20,alignItems:"center",borderBottom:"1px solid #20242b",paddingBottom:22}}><div><div style={{fontSize:11,letterSpacing:4,opacity:.45}}>KANA / SOVEREIGN INTELLIGENCE PLATFORM</div><h1 style={{fontSize:44,margin:"10px 0 4px"}}>BIG BRAIN</h1><div style={{opacity:.55}}>Objective → Reason → Route → Execute → Verify → Learn → Evolve</div></div><div style={{border:"1px solid #303640",borderRadius:999,padding:"9px 15px",fontSize:12}}>{brain.status} · {brain.mode}</div></header>
+    <section style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))",gap:10,marginTop:18}}>{["BIG BRAIN","GOVERNOR","EXECUTION","VERIFICATION","EXPERIENCE","EVOLUTION"].map(x=><div key={x} style={{background:"#0d1014",border:"1px solid #20242b",borderRadius:10,padding:16}}><div style={{fontSize:10,opacity:.42,letterSpacing:2}}>CORE</div><div style={{marginTop:8,fontWeight:700}}>{x}</div><div style={{fontSize:11,opacity:.45,marginTop:7}}>READY</div></div>)}</section>
+    <section style={{marginTop:16,background:"#0c0f13",border:"1px solid #242932",borderRadius:12,padding:22}}><div style={{fontSize:11,letterSpacing:2,opacity:.45}}>MISSION INPUT</div><div style={{display:"flex",gap:10,marginTop:12}}><input value={objective} onChange={e=>setObjective(e.target.value)} onKeyDown={e=>e.key==="Enter"&&execute()} placeholder="Give KANA a measurable objective..." style={{flex:1,background:"#07080a",color:"white",border:"1px solid #303640",borderRadius:8,padding:14}}/><button onClick={execute} disabled={busy} style={{border:0,borderRadius:8,padding:"0 22px",fontWeight:800}}>{busy?"ROUTING...":"EXECUTE"}</button></div>{result&&<pre style={{whiteSpace:"pre-wrap",fontSize:12,opacity:.75,marginTop:16}}>{JSON.stringify(result,null,2)}</pre>}</section>
+    <section style={{marginTop:16,display:"grid",gridTemplateColumns:"1.2fr .8fr",gap:16}}><div style={{background:"#0c0f13",border:"1px solid #242932",borderRadius:12,padding:22}}><div style={{fontSize:11,letterSpacing:2,opacity:.45}}>CAPABILITY NETWORK</div><div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))",gap:9,marginTop:14}}>{caps.map(c=>{const ps=providers.filter(p=>p.capability===c);return <div key={c} style={{border:"1px solid #20242b",borderRadius:9,padding:13}}><b style={{textTransform:"uppercase",fontSize:12}}>{c}</b><div style={{fontSize:11,opacity:.5,marginTop:7}}>{ps.map(p=><span key={p.id} style={{marginRight:8}}>{p.id}{p.configured?" ✓":" · ready"}</span>)}</div></div>})}</div></div><div style={{background:"#0c0f13",border:"1px solid #242932",borderRadius:12,padding:22}}><div style={{fontSize:11,letterSpacing:2,opacity:.45}}>RUNTIME</div><div style={{fontSize:30,marginTop:12}}>{configured}/{providers.length}</div><div style={{opacity:.5,fontSize:12}}>providers configured</div><pre style={{fontSize:11,lineHeight:1.6,opacity:.65,marginTop:18,whiteSpace:"pre-wrap"}}>{JSON.stringify(brain,null,2)}</pre></div></section>
+    <section style={{marginTop:16,border:"1px solid #242932",borderRadius:12,padding:22,background:"#0c0f13"}}><div style={{fontSize:11,letterSpacing:2,opacity:.45}}>CONNECTED ECOSYSTEM</div><p style={{opacity:.65,lineHeight:1.7}}>Vercel is the runtime and control plane. Hugging Face, Cerebrium, NVIDIA and AMD provide model/compute capability. GitHub and Codex Tasks provide engineering execution. PostHog provides product intelligence. Notion provides knowledge. Figma and Product Design provide design capability. Runway provides media generation. Stripe provides commerce. WPVibe provides WordPress execution. AgentMarkup provides structured agent interoperability.</p></section>
+  </div></main>;
 }

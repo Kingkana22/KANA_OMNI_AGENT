@@ -46,7 +46,6 @@ export async function planObjective(objective: string, context?: unknown): Promi
       model: process.env.KANA_BRAIN_MODEL || "gpt-5.6-luna",
       instructions: SYSTEM,
       input: JSON.stringify({ objective, context: context ?? null }),
-      temperature: 0.2,
     }),
     signal: AbortSignal.timeout(60000),
   });
